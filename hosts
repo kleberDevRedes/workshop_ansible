@@ -1,0 +1,41 @@
+# Formato init
+
+# [ha]
+# ha-01 ansible_host=10.22.0.10 hostname=LINUX-HA-01
+# ha-02 ansible_host=10.22.0.20 hostname=LINUX-HA-02
+
+# [web]
+# web-01 ansible_host=10.22.0.30 hostname=LINUX-WEB-01
+# web-02 ansible_host=10.22.0.40 hostname=LINUX-WEB-02
+
+# [linux:children]
+# web
+# ha
+
+# Formato yaml
+
+#all:
+  #hosts:
+    #ha-01:
+      #ansible_host: 10.22.0.10
+      #hostname: "LINUX-HA-01"
+    #ha-02:
+      #ansible_host: 10.22.0.20
+      #hostname: "LINUX-HA-02"
+    #web-01:
+      #ansible_host: 10.22.0.30
+      #hostname: "LINUX-WEB-01"
+    #web-02:
+      #ansible_host: 10.22.0.40
+      #hostname: "LINUX-WEB-02"
+  #children:
+    #linux:
+      #children:
+        #web:
+          #hosts:
+            #web-01:
+            #web-02:
+        #ha:
+          #hosts:
+            #ha-01:
+            #ha-02:
